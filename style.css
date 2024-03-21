@@ -1,0 +1,125 @@
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    background: #111;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; Add this to make room for the fixed top message */
+}
+
+.star 
+{
+    position: absolute;
+    top: -50px;
+    color: #fff;
+    animation: animate 5s linear infinite;
+
+}
+
+#positiveMessage {
+    position: absolute;
+    top: 10px; /* Adjust this value to move the message down */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    opacity: 1; /* Initially hide the message */
+    transition: opacity 0.5s ease;
+}
+
+.show {
+    opacity: 1; /* Show the message when the 'show' class is applied */
+}
+
+.star::before
+{
+    content: '\f111';
+    font-family:  fontAwesome;
+    text-shadow: 0 0 5px #fff,
+    0 0 20px #fff,
+    0 0 50px #fff;
+}
+
+
+
+.msg {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 30s ease, transform 60s ease; /* 1 second transition */
+    opacity: 1;
+    animation: shine 3s linear infinite alternate; /* Twinkling animation */
+
+   
+}
+
+.msg.fade-out {
+    opacity: 0;
+    transform: translateY(100vh) scale(-1);
+    animation: shine-out 1s linear forwards; /* Custom animation for fading out */
+}
+
+#textInput {
+    position: absolute;
+    /* bottom: 50px; */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    width: 200px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid lightblue;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes animate 
+{
+    0%
+    {
+        transform:  translateY(0) rotate(0deg);
+        opacity: 1;
+        
+    }
+    80%
+    {
+        opacity: 1;
+        
+    }
+    100%
+    {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+        
+    }
+}
+
+
+
+@keyframes shine {
+    0%, 100% {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+    }
+    50% {
+        box-shadow: none;
+    }
+}
+
